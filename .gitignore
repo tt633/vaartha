@@ -1,0 +1,28 @@
+# Environment & secrets
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Raw data (large files, download instructions in README)
+data/raw/
+
+# Outputs (generated on run)
+outputs/
+
+# IDE
+.vscode/
+.idea/

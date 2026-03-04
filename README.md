@@ -109,7 +109,7 @@ Key finding so far: gallium (HHI 0.77), germanium (0.76), rare earths (0.71) are
 ---
 
 ### ST2 — Geopolitical Risk 🔲 PENDING
-**Owner:** Sai Raunak Bidesi (ssb196)
+**Owner:** Chaitanya Deogaonkar(cmd517)
 **Question:** How does geopolitical risk transmit into supply chain pressure and commodity prices?
 
 **Phase 1 (Ingestion) — notebook `02_ST2_geopolitical_risk_ingestion.ipynb` is written. You need to:**
@@ -118,8 +118,8 @@ Key finding so far: gallium (HHI 0.77), germanium (0.76), rare earths (0.71) are
 
    | File | Source | Filename |
    |------|--------|----------|
-   | GPR Index | https://www.matteoiacoviello.com/gpr.htm → Download Excel | `gpr_data.xlsx` |
-   | NY Fed GSCPI | https://www.newyorkfed.org/research/policy/gscpi → Download CSV | `gscpi.csv` |
+   | GPR Index | https://www.matteoiacoviello.com/gpr.htm → Download Excel | `data_gpr_export.xls` |
+   | NY Fed GSCPI | https://www.newyorkfed.org/research/policy/gscpi → Download data file | `gscpi.csv` or `gscpi_data.xlsx` or `gscpi_data.xls` |
 
    FRED and yfinance data are **auto-downloaded** by the notebook — no manual step needed for those.
 
@@ -136,6 +136,11 @@ Key finding so far: gallium (HHI 0.77), germanium (0.76), rare earths (0.71) are
    - `st2_master.parquet` — All ST2 series merged on monthly date
 
 5. **Run Phase 2 analysis:** `notebooks/06_ST2_analysis.ipynb` — 5 charts already coded, just needs the parquets.
+
+   For explicit transmission work (lag scans, event windows, forward response summaries),
+   use [src/st2_transmission.py](/Users/chaitanya/Desktop/ADV_Project/vaartha/src/st2_transmission.py).
+   To rebuild `st2_master.parquet` and export ST2->ST1 lag tables from the terminal,
+   run `python scripts/run_st2_transmission.py` after the ST2 ingestion outputs exist.
 
 ---
 

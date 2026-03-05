@@ -39,15 +39,18 @@ team7_lambda/
 │   │   └── oecd/              ← export_restrictions.csv
 │   └── processed/             ← cleaned Parquet files output by notebooks
 ├── notebooks/
-│   ├── 01_ST1_minerals_ingestion.ipynb       ← Phase 1, DONE ✓
-│   ├── 02_ST2_geopolitical_risk_ingestion.ipynb ← Phase 1, DONE ✓
-│   ├── 03_ST3_energy_policy_ingestion.ipynb  ← Phase 1, DONE ✓
-│   ├── 04_ST4_capex_ingestion.ipynb          ← Phase 1, DONE ✓
-│   ├── 05_ST1_analysis.ipynb                 ← Phase 2, DONE ✓
-│   ├── 06_ST2_analysis.ipynb                 ← Phase 2, DONE ✓
-│   ├── 07_ST3_analysis.ipynb                 ← Phase 2, DONE ✓
-│   ├── 08_ST4_analysis.ipynb                 ← Phase 2, DONE ✓
-│   └── 09_integration.ipynb                  ← Phase 3, DONE ✓
+│   ├── phase1_ingestion/
+│   │   ├── 01_ST1_minerals_ingestion.ipynb       ← DONE ✓
+│   │   ├── 02_ST2_geopolitical_risk_ingestion.ipynb ← DONE ✓
+│   │   ├── 03_ST3_energy_policy_ingestion.ipynb  ← DONE ✓
+│   │   └── 04_ST4_capex_ingestion.ipynb          ← DONE ✓
+│   ├── phase2_analysis/
+│   │   ├── 05_ST1_analysis.ipynb                 ← DONE ✓
+│   │   ├── 06_ST2_analysis.ipynb                 ← DONE ✓
+│   │   ├── 07_ST3_analysis.ipynb                 ← DONE ✓
+│   │   └── 08_ST4_analysis.ipynb                 ← DONE ✓
+│   └── phase3_integration/
+│       └── 09_integration.ipynb                  ← DONE ✓
 └── outputs/
     ├── charts/                ← saved figures (.png / .html)
     └── tables/                ← summary tables (.csv)

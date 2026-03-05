@@ -17,11 +17,15 @@ __pycache__/
 .DS_Store
 .AppleDouble
 
-# Raw data (large files, download instructions in README)
-data/raw/
+# Raw data (large binary files — see data/raw/DOWNLOAD.md for sources)
+data/raw/**
+!data/raw/**/
+!data/raw/**/.gitkeep
+!data/raw/DOWNLOAD.md
 
-# Outputs (generated on run)
-outputs/
+# Outputs — track charts and tables, ignore checkpoints
+!outputs/
+!outputs/**
 
 # IDE
 .vscode/

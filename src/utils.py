@@ -8,7 +8,10 @@ import logging
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import pycountry
+try:
+    import pycountry
+except ImportError:  # optional dependency in restricted environments
+    pycountry = None
 
 logging.basicConfig(
     level=logging.INFO,
@@ -55,12 +58,16 @@ def to_iso3(name: str) -> str | None:
     key = str(name).strip().lower()
     if key in _COUNTRY_OVERRIDES:
         return _COUNTRY_OVERRIDES[key]
-    try:
-        result = pycountry.countries.search_fuzzy(name)
-        return result[0].alpha_3
-    except LookupError:
-        log.warning(f"Could not map country: '{name}'")
-        return None
+    if pycountry is not None:
+        try:
+            result = pycountry.countries.search_fuzzy(name)
+            return result[0].alpha_3
+        except LookupError:
+            log.warning(f"Could not map country: '{name}'")
+            return None
+
+    log.warning("pycountry not installed; could not map country: '%s'", name)
+    return None
 
 
 def normalize_countries(df: pd.DataFrame, col: str, out_col: str = "iso3") -> pd.DataFrame:

@@ -39,15 +39,15 @@ team7_lambda/
 │   │   └── oecd/              ← export_restrictions.csv
 │   └── processed/             ← cleaned Parquet files output by notebooks
 ├── notebooks/
-│   ├── 01_ST1_minerals_ingestion.ipynb       ← Phase 1, done
-│   ├── 02_ST2_geopolitical_risk_ingestion.ipynb ← Phase 1, done
-│   ├── 03_ST3_energy_policy_ingestion.ipynb  ← Phase 1, TODO
-│   ├── 04_ST4_capex_ingestion.ipynb          ← Phase 1, TODO
-│   ├── 05_ST1_analysis.ipynb                 ← Phase 2, TODO
-│   ├── 06_ST2_analysis.ipynb                 ← Phase 2, TODO
-│   ├── 07_ST3_analysis.ipynb                 ← Phase 2, TODO
-│   ├── 08_ST4_analysis.ipynb                 ← Phase 2, TODO
-│   └── 09_integration.ipynb                  ← Phase 3, TODO
+│   ├── 01_ST1_minerals_ingestion.ipynb       ← Phase 1, DONE ✓
+│   ├── 02_ST2_geopolitical_risk_ingestion.ipynb ← Phase 1, DONE ✓
+│   ├── 03_ST3_energy_policy_ingestion.ipynb  ← Phase 1, DONE ✓
+│   ├── 04_ST4_capex_ingestion.ipynb          ← Phase 1, DONE ✓
+│   ├── 05_ST1_analysis.ipynb                 ← Phase 2, DONE ✓
+│   ├── 06_ST2_analysis.ipynb                 ← Phase 2, DONE ✓
+│   ├── 07_ST3_analysis.ipynb                 ← Phase 2, DONE ✓
+│   ├── 08_ST4_analysis.ipynb                 ← Phase 2, DONE ✓
+│   └── 09_integration.ipynb                  ← Phase 3, DONE ✓
 └── outputs/
     ├── charts/                ← saved figures (.png / .html)
     └── tables/                ← summary tables (.csv)
@@ -153,12 +153,13 @@ Always import from utils, never reimplement these:
 - `st2_etfs.parquet` — columns: `date, XLK, XLE, XLB, SOXX` + `*_return` columns
 - `st2_master.parquet` — all ST2 series merged on monthly date
 
-### ST3 (to be created)
-- `st3_energy.parquet` — columns: `iso3, year, renewables_share, fossil_share, nuclear_share, solar_twh, wind_twh, ...`
-- `st3_carbon_price.parquet` — columns: `iso3, year, carbon_price_usd`
+### ST3
+- `st3_energy.parquet` — columns: `iso3, year, renewables_share, fossil_share, nuclear_share, solar_twh, wind_twh, hydro_twh, electricity_twh, primary_energy_twh`
+- `st3_carbon_price.parquet` — columns: `iso3, year, tax_price_local, ets_price_local, has_carbon_price`
 
-### ST4 (to be created)
-- `st4_capex.parquet` — columns: `ticker, sector, period, capex, rd_expense, revenue, capex_intensity, rd_intensity`
+### ST4
+- `st4_capex.parquet` — columns: `ticker, sector, period (datetime quarterly → convert to year via .dt.year), capex, rd_expense, revenue, capex_intensity, rd_intensity, us_total_capex_millions`
+- **Note:** `period` is `datetime64[ns]` quarterly. Always do `pd.to_datetime(df['period']).dt.year` before any groupby or merge.
 
 ---
 
@@ -166,9 +167,9 @@ Always import from utils, never reimplement these:
 
 | Phase | Dates | Status |
 |-------|-------|--------|
-| Phase 1: Ingestion & Cleaning | Feb 27 – Mar 2 | ST1 ✓, ST2 ✓, ST3 TODO, ST4 TODO |
-| Phase 2: EDA & Visualization | Mar 2 – Mar 7 | TODO |
-| Phase 3: Integration | Mar 7 – Mar 9 | TODO |
+| Phase 1: Ingestion & Cleaning | Feb 27 – Mar 2 | ✓ DONE — all 4 STs, parquets committed |
+| Phase 2: EDA & Visualization | Mar 2 – Mar 7 | ✓ DONE — notebooks 05–08, 5 charts each |
+| Phase 3: Integration | Mar 7 – Mar 9 | ✓ DONE — 09_integration.ipynb, 4 charts |
 | Phase 4: Report + Polish | Mar 9 – Mar 16 | TODO |
 
 ---
@@ -205,9 +206,25 @@ Always import from utils, never reimplement these:
 
 ---
 
-## What to build next (in order)
+## What to build next (Phase 4)
 
-1. `notebooks/03_ST3_energy_policy_ingestion.ipynb` — load OWID, Ember, RFF carbon pricing
-2. `notebooks/04_ST4_capex_ingestion.ipynb` — pull SEC EDGAR XBRL for 10 companies
-3. Phase 2 analysis notebooks (05–08) — one per subtopic, 5 charts each
-4. `notebooks/09_integration.ipynb` — master correlation matrix, Four-Box regime analysis, causal chain figure
+1. Run all notebooks top-to-bottom (01 → 09) to generate chart PNGs/HTMLs in `outputs/charts/`
+2. Write the final report — one section per subtopic, cite charts from `outputs/charts/`
+3. Polish: ensure all `.txt` caption files are accurate, clean up any notebook output cells before submission
+
+## Integration notebook (09) — what it produces
+
+- **Annual master panel** (2010–2022): GPR, GSCPI, avg HHI, avg price vol, global renewables share, CapEx intensity per sector
+- **Chart 1** `integration_correlation_matrix.png` — cross-ST Pearson correlation heatmap
+- **Chart 2** `integration_four_box_regime.png` — Four-Box: GPR × HHI quadrants, bubble = CapEx intensity
+- **Chart 3** `integration_causal_chain.png` — 4-panel ST2→ST1→ST3→ST4 timeline
+- **Chart 4** `integration_rolling_correlation.png` — 3-year rolling GPR→downstream correlations
+- **Tables:** `integration_master_panel.csv`, `integration_correlation_matrix.csv`, `integration_regime_classification.csv`, `integration_summary_stats.csv`
+
+## Key data facts (gotchas)
+
+- `st4_capex.parquet` — `period` is `datetime64[ns]` quarterly; always convert with `.dt.year` before use
+- `st2_gpr.parquet` — has `var_name`/`var_label` metadata cols; safe to ignore; 1 row per date
+- ST1 HHI minerals vs ST1 price commodities only overlap on: `copper, gold, nickel, silver`
+- All 4 subtopics align on 2010–2022 annual frequency
+- `outputs/` is gitignored — charts are generated locally on run, not committed

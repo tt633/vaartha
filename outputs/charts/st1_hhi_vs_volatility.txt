@@ -1,0 +1,1 @@
+Scatter plot of HHI (supply concentration) against 12-month rolling price volatility for critical minerals. Each point is one mineral-year; the positive relationship demonstrates that higher geographic concentration directly amplifies price volatility, validating the ST1 supply chain distortion hypothesis.

@@ -231,7 +231,7 @@ All charts are in `outputs/charts/`. Each `.png` or `.html` has a companion `.tx
 |----------|-------|-------|
 | ST1 — Critical Minerals | Tarun Theegela | tt633 |
 | ST2 — Geopolitical Risk | Chaitanya Deogaonkar | cmd517 |
-| ST3 — Energy Policy | Tarun Theegela | tt633 |
+| ST3 — Energy Policy | Tarun Theegela · Satwik Nadipelli | tt633 · srn91 |
 | ST4 — Corporate CapEx | Sai Raunak Bidesi | ssb196 |
 | Integration | Tarun Theegela | tt633 |
 

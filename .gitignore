@@ -43,8 +43,8 @@ data/raw/**
 # Claude internal
 .claude/
 
-# Misc
-outputs/.DS_Store
-"MidTerm Project - SP2026.docx"
-notebooks/09_integration.ipynb
+# Misc project files (keep local, don't commit)
+*.docx
+*.pptx
 presentation_plan.md
+team_lambda_midterm_report.pdf

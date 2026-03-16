@@ -1,0 +1,25 @@
+# Team 7 Lambda — SP2026 Midterm
+# Install with: pip install -r requirements.txt
+
+# Core data
+pandas==2.2.2
+numpy==1.26.4
+pyarrow==14.0.2
+openpyxl==3.1.2
+
+# Visualization
+matplotlib==3.8.4
+seaborn==0.13.2
+plotly==5.22.0
+
+# Data sources
+requests==2.32.2
+yfinance==0.2.66
+python-dotenv==0.21.0
+
+# Country normalization (optional but recommended)
+pycountry==26.2.16
+
+# Notebook
+jupyter>=1.0.0
+ipykernel>=6.0.0

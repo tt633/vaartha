@@ -1,1 +1,1 @@
-Stacked area charts show the evolution of energy mix (renewables, fossil fuels, nuclear) for 8 focal countries 2005-2024. Diverging trajectories — Germany and UK accelerating renewables, India still fossil-dominated — create asymmetric mineral demand profiles that differentially strain lithium, cobalt, and rare earth supply chains.
+Faceted energy mix by country.

@@ -1,1 +1,1 @@
-Top panel: GPR index (left axis) vs GSCPI supply chain pressure (right axis). Bottom panel: 24-month rolling co-movement between the two series. Persistent positive rolling correlation, especially post-2020, confirms that geopolitical risk systematically transmits into global supply chain disruption rather than remaining confined to financial markets.
+Rolling correlation between GPR and GSCPI.

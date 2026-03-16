@@ -1,1 +1,1 @@
-Heatmap of renewables share (%) for focal countries 2005-2024. Lighter (lower renewables) vs darker (higher renewables) rows reveal the asymmetric energy policy trajectories that create structurally different mineral demand growth rates across economies, driving differential pressure on critical mineral supply chains.
+Renewables share by country and year.

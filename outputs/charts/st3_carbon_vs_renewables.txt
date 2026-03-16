@@ -1,1 +1,1 @@
-Dot plot comparing renewables share (most recent year) with presence of a carbon pricing mechanism. Countries with active carbon pricing (green) tend to cluster at higher renewables shares, suggesting that policy instruments accelerate the energy transition and therefore amplify demand for transition minerals like lithium and cobalt.
+Renewables share versus carbon pricing.

@@ -30,3 +30,21 @@ data/raw/**
 # IDE
 .vscode/
 .idea/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Claude internal
+.claude/
+
+# Misc
+outputs/.DS_Store
+"MidTerm Project - SP2026.docx"
+notebooks/09_integration.ipynb
+presentation_plan.md

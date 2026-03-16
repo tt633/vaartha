@@ -1,1 +1,1 @@
-24-month rolling correlation between the NY Fed GSCPI supply chain pressure index and sector ETF monthly returns. Diverging sector sensitivities — materials (XLB) positive, technology (XLK) negative — illustrate asymmetric exposure: supply shocks hurt tech consumers while benefiting commodity producers.
+Rolling correlation between GSCPI and ETF returns.

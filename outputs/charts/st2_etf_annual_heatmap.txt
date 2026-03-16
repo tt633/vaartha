@@ -1,1 +1,1 @@
-Annual return heatmap for XLK (Technology), XLE (Energy), XLB (Materials), and SOXX (Semiconductors) 2005-2024. Sector divergence in geopolitically sensitive years (2018 trade war, 2022 invasion) reveals differential exposure to supply chain disruption and quantifies CapEx reallocation pressure on technology firms.
+Annual ETF return heatmap.

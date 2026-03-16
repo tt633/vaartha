@@ -1,1 +1,1 @@
-Three-panel event study around the Ukraine invasion (2022-02-24). GPR (panel 1) spikes immediately at the event; GSCPI (panel 2) follows with a 1-2 month lag, confirming the ST2→ST1 transmission pathway; sector ETFs (panel 3) diverge sharply post-invasion as energy (XLE) rallies while technology (XLK) and semiconductors (SOXX) sell off on supply chain fears.
+Ukraine invasion event study.
